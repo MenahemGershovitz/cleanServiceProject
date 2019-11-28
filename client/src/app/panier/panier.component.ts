@@ -35,10 +35,10 @@ export class PanierComponent implements OnInit {
     };
   }
 
-  removeItem(model){
+  removeItem(model,index){
     let lastProd = JSON.parse(localStorage.getItem('products'));
-    Object.keys(lastProd).forEach(key => {
-      if(lastProd[key].name === model.name && lastProd[key].type === model.type){
+    Object.keys(lastProd).forEach((key,keyIdx) => {
+      if(lastProd[key].name === model.name && lastProd[key].type === model.type && keyIdx===index){
         delete lastProd[key];
       }
     })

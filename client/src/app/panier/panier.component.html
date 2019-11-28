@@ -1,9 +1,9 @@
 <div class="body">
         <h1>{{name}}</h1>
         <div id="articles">
-            <ul *ngFor="let model of models">
+            <ul *ngFor="let model of models;let i = index">
                 {{model.name}}-{{model.type}}.............{{getProductPrice(model.name,model.type,true)}}/{{getProductPrice(model.name,model.type,false)}}
-                <a (click)="removeItem(model)">remove</a>
+                <a (click)="removeItem(model,index)">remove</a>
             </ul>
         </div>
         <a routerLink="../checkout">checkout</a>
