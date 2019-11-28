@@ -15,14 +15,17 @@ import { ArticlesComponent } from './articles/articles.component';
 import { FormsModule } from '@angular/forms';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import {PanierComponent} from './panier/panier.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'tarifs', component: TarifComponent},
   {path: 'tarifs/:id', component: ListeProduitsComponent},
   {path: 'signUp', component: SignUpComponent},
-  {path: 'authentification', component: AuthentificationComponent}
+  {path: 'authentification', component: AuthentificationComponent},
+  {path: 'panier', component: PanierComponent},
+  {path: 'checkout', component: CheckoutComponent},
 ];
 
 @NgModule({
@@ -30,12 +33,14 @@ const appRoutes: Routes = [
     AppComponent,
     TarifComponent,
     HomeComponent,
+    PanierComponent,
     CleanServiceViewComponent,
     AuthentificationComponent,
     SignUpComponent,
     ListeProduitsComponent,
     ArticlesComponent,
     ListUsersComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

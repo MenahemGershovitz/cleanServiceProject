@@ -7,12 +7,12 @@ import { ProductsServiceService } from '../service/products-service.service';
   styleUrls: ['./tarif.component.css']
 })
 export class TarifComponent implements OnInit {
-products: any[];
+ products: any[];
 
   constructor(private productsService: ProductsServiceService) {
     
    }
-
+ 
   ngOnInit() {
     this.products = this.productsService.AllProducts;
     
@@ -20,4 +20,4 @@ products: any[];
 
 }
 
-
+ 

@@ -28,4 +28,28 @@ models: any[];
     // this.prix2 = this.productsService.getProductById(+id).model[this.name].prix2;
   }
 
+  addProduct(model){
+    let lastProd;
+    try{
+      lastProd = JSON.parse(localStorage.getItem('products'));
+    }
+    catch{
+      lastProd = {};
+    }
+    const product = {
+      type:model.name,
+      name:this.name
+    }
+    let id = this.guidGenerator();
+    lastProd[id]=product;
+    localStorage.setItem('products',JSON.stringify(lastProd));
+  }
+
+  guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
 }
