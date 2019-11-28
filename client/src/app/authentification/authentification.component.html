@@ -1,0 +1,17 @@
+<div id="body">
+    <div class="connexion">
+        <h1>Sign Up</h1>
+ 
+        <form (submit)="onAuth(authForm)" #authForm="ngForm" ngNativeValidate>
+            
+
+            <input type="email" name = "email" placeholder="email" #email="ngModel" class="textSignUp" ngModel required >
+            
+
+            <input type="password"  name= "password" placeholder="password" #password="ngModel" class="textSignUp" ngModel required>
+            
+
+            <button type= "submit" >Login</button>
+        </form>
+    </div>
+</div>

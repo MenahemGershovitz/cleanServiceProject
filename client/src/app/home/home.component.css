@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&display=swap');
+
+h1{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 3em;
+    color: rgb(8, 8, 77);
+    text-align: center;
+    margin-top: 80px;
+
+    
+}
+
+h3{
+    margin-top: -40px;
+    margin-bottom: 60px;
+    
+    font-family: 'Dancing Script', cursive;
+    font-weight: 300;
+    color: #a7a7b3;
+    font-size: 2em;
+    text-align: center;
+}
+
+#image_costume_fond{
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+p{
+    font-family: 'Nunito Sans', sans-serif;
+    color: rgb(8, 8, 77);
+    font-size: 1.8em;
+    margin-bottom: -30px;
+}
+
+h2{
+
+    font-family: 'Nunito Sans', sans-serif;
+    margin-top: 60px;
+    color: rgb(8, 8, 77);
+    text-align: center; 
+    
+}

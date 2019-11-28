@@ -1,0 +1,18 @@
+<div id="body">
+    <div class="connexion">
+        <h1>Sign Up</h1>
+ 
+        <form (submit)="onSignUp(signUpForm)" #signUpForm="ngForm" ngNativeValidate>
+            <input type="text" ngModel name = "name" placeholder="full name" #name="ngModel" class="textSignUp"  required>
+            
+
+            <input type="email" name = "email" placeholder="email" #email="ngModel" class="textSignUp" ngModel required >
+            
+
+            <input type="password"  name= "password" placeholder="password" #password="ngModel" class="textSignUp" ngModel required>
+            
+
+            <button type= "submit" >Create Account</button>
+        </form>
+    </div>
+</div>
