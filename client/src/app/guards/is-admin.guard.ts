@@ -15,7 +15,7 @@ export class isAdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean{
 
-    if(AuthService.admin){
+    if(AuthService.admin == 'true'){
         return true;
     }
     return false;
