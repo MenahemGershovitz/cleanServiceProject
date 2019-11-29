@@ -18,15 +18,21 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {PanierComponent} from './panier/panier.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AuthInterceptor } from './interceptor/auth-interceptor';
+import { AuthGuard } from './guards/auth.guard';
+import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
+import {TableModule} from 'primeng/table';
+import { isAdminGuard } from './guards/is-admin.guard';
 
 const appRoutes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'tarifs', component: TarifComponent},
-  {path: 'tarifs/:id', component: ListeProduitsComponent},
+  {path: '', redirectTo:'home',pathMatch:'full'},
+  {path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
+  {path: 'espace-admin', component: EspaceAdminComponent, canActivate:[AuthGuard, isAdminGuard]},
+  {path: 'tarifs', component: TarifComponent, canActivate:[AuthGuard]},
+  {path: 'tarifs/:id', component: ListeProduitsComponent, canActivate:[AuthGuard]},
   {path: 'signUp', component: SignUpComponent},
   {path: 'authentification', component: AuthentificationComponent},
-  {path: 'panier', component: PanierComponent},
-  {path: 'checkout', component: CheckoutComponent},
+  {path: 'panier', component: PanierComponent, canActivate:[AuthGuard]},
+  {path: 'checkout', component: CheckoutComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({
@@ -42,6 +48,7 @@ const appRoutes: Routes = [
     ArticlesComponent,
     ListUsersComponent,
     CheckoutComponent,
+    EspaceAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    TableModule
     
   ],
   providers: [

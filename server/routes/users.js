@@ -40,10 +40,10 @@ router.post('/login', (req, res) => {
         })
       }
       fetchedUser = user
-      return bcrypt.compare(req.body.password, user.password)
+      return {result:bcrypt.compare(req.body.password, user.password),user:fetchedUser}
     })
 
-    .then(result => {
+    .then(({result,user}) => {
       if (!result) {
         return res.status(401).json({
           message: "Auth failed"
@@ -55,8 +55,24 @@ router.post('/login', (req, res) => {
         { expiresIn: "1h", }
       );
       res.status(200).json({
+        userId:user._id,
+        isAdmin:user.isAdmin,
         token: token
       });
+    })
+    .catch(err => {
+      console.log(err)
+      return res.status(401).json({
+        message: "Auth failed"
+      })
+    })
+})
+
+router.get('/isAdmin/:id', (req, res) => {
+  const userId = req.params.id;
+  User.findById(userId)
+    .then((user)=> {
+      return res.status(200).send(user.isAdmin);
     })
     .catch(err => {
       return res.status(401).json({

@@ -6,7 +6,7 @@ const checkAuth = require("../middleware/check-auth");
 
 
 
-router.post('/',checkAuth, async (req,res)=>{
+router.post('/', async (req,res)=>{
     try{
         const {userId,address,products} = req.body;
         const allProductsId = [];
@@ -20,9 +20,9 @@ router.post('/',checkAuth, async (req,res)=>{
             allProductsId.push(newProdCreated._id)
         }
         const order = new Order({
-            userId:userId,
+            user:userId,
             address:address,
-            productsId:allProductsId
+            products:allProductsId
         })
         await order.save();
         return res.status(201).send(order)
@@ -30,6 +30,19 @@ router.post('/',checkAuth, async (req,res)=>{
     catch(err){
         console.log(err);
         return res.status(500).send(`Error creating order: ${err}`);
+    }
+})
+
+
+router.get('/', async (req,res)=>{
+    try{
+       const orders = await Order.find({}).populate("user products")
+       console.log(orders)
+       return res.status(200).json(orders)
+    }
+    catch(err){
+        console.log(err);
+        return res.status(500).send(`Error getting order: ${err}`);
     }
 })
 

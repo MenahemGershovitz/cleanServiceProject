@@ -1,0 +1,20 @@
+<div class="body">
+    <p-table [value]="orders">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Products</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-order>
+            <tr>
+                <td>{{order.user.name}}</td>
+                <td>{{order.user.email}}</td>
+                <td>{{order.address}}</td>
+                <td>{{order.products.length}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
