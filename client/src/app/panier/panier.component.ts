@@ -13,13 +13,7 @@ export class PanierComponent implements OnInit {
 
 
   ngOnInit() {
-    let lastProd;
-    try{
-      lastProd = JSON.parse(localStorage.getItem('products'));
-    }
-    catch{
-      lastProd = {};
-    }
+    let lastProd = JSON.parse(localStorage.getItem('products')) || {};
     this.models = Object.keys(lastProd).map(key => {
       return lastProd[key];
     });

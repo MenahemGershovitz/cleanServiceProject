@@ -25,13 +25,7 @@ models: any[];
   }
 
   addProduct(model){
-    let lastProd;
-    try{
-      lastProd = JSON.parse(localStorage.getItem('products'));
-    }
-    catch{
-      lastProd = {};
-    }
+    let lastProd = JSON.parse(localStorage.getItem('products')) || {};
     const product = {
       type:model.name,
       name:this.name
