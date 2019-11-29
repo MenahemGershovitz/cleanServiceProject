@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Order = require("../model/order");
 const Product = require("../model/product");
+const checkAuth = require("../middleware/check-auth");
 
-router.post('/',async (req,res)=>{
+
+
+router.post('/',checkAuth, async (req,res)=>{
     try{
         const {userId,address,products} = req.body;
         const allProductsId = [];

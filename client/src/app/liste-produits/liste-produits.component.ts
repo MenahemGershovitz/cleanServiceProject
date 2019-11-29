@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsServiceService } from '../service/products-service.service';
 
@@ -22,10 +22,6 @@ models: any[];
     this.products = this.productsService.AllProducts;
     this.name = this.productsService.getProductById(+id).name;
     this.models = this.productsService.getProductById(+id).model;
-   
-    // this.model = this.productsService.getProductById(+id).model[this.name].name;
-    // this.prix = this.productsService.getProductById(+id).model[this.name].prix;
-    // this.prix2 = this.productsService.getProductById(+id).model[this.name].prix2;
   }
 
   addProduct(model){

@@ -14,9 +14,10 @@ import { ListeProduitsComponent } from './liste-produits/liste-produits.componen
 import { ArticlesComponent } from './articles/articles.component';
 import { FormsModule } from '@angular/forms';
 import { ListUsersComponent } from './list-users/list-users.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {PanierComponent} from './panier/panier.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AuthInterceptor } from './interceptor/auth-interceptor';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -52,7 +53,9 @@ const appRoutes: Routes = [
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
