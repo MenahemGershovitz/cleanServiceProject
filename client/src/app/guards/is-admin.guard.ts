@@ -18,7 +18,7 @@ export class isAdminGuard implements CanActivate {
     if(AuthService.admin == 'true'){
         return true;
     }
-    return false;
+    return false; 
   }
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -10,9 +12,14 @@ import 'rxjs/Rx';
 })
 export class CleanServiceViewComponent implements OnInit {
   seconde: number;
-  constructor() { }
+  constructor(private authService: AuthService,private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['/authentification']);
   }
 
 }
