@@ -6,7 +6,7 @@
                 <a (click)="removeItem(model,i)">remove</a>
             </ul>
         </div>
-        <a routerLink="../checkout">checkout </a>
+        <a routerLink="../checkout" *ngIf="models.length">checkout </a>
     
         <a routerLink="/tarifs">revenir en arrière</a>
     </div>

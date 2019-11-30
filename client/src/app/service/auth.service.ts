@@ -41,6 +41,8 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('access_token');
+    localStorage.removeItem('products');
+    localStorage.removeItem('userId');
   }
 
   isAdmin() {

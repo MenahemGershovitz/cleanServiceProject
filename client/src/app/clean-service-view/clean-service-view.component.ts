@@ -17,6 +17,10 @@ export class CleanServiceViewComponent implements OnInit {
   ngOnInit() {
   }
 
+  isAdmin() {
+    return localStorage.getItem('isAdmin') === 'true';
+  }
+
   logout(){
     this.authService.logout();
     this.router.navigate(['/authentification']);
