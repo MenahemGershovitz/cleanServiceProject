@@ -9,7 +9,6 @@ import { ProductsServiceService } from '../service/products-service.service';
 })
 export class ListeProduitsComponent implements OnInit {
   
-products: any[];
 name : string;
 models: any[];
 
@@ -19,23 +18,22 @@ models: any[];
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.products = this.productsService.AllProducts;
     this.name = this.productsService.getProductById(+id).name;
     this.models = this.productsService.getProductById(+id).model;
   }
 
   addProduct(model){
-    let lastProd = JSON.parse(localStorage.getItem('products')) || {};
+    let lastProd = JSON.parse(localStorage.getItem('products')) || {};  //lis les produits de la clef products dans le localStorage et si undefined alor tu m'affiche un objet vide 
     const product = {
       type:model.name,
       name:this.name
     }
-    let id = this.guidGenerator();
+    let id = this.guidGenerator(); //genere un id compliquer et long pour ne pas avoir 2 produits de meme id
     lastProd[id]=product;
-    localStorage.setItem('products',JSON.stringify(lastProd));
+    localStorage.setItem('products',JSON.stringify(lastProd)); //stock les valeurs de lastProd dans la clef products
   }
 
-  guidGenerator() {
+  guidGenerator() { //fonction qui retourne un string compliquer pour l'id
     var S4 = function() {
        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
     };

@@ -1,13 +1,29 @@
 <div class="body">
         <h1>{{name}}</h1>
-        <div id="articles">
-            <ul *ngFor="let model of models;let i = index">
-                {{model.name}}-{{model.type}}.............{{getProductPrice(model.name,model.type,true)}}/{{getProductPrice(model.name,model.type,false)}}
-                <a (click)="removeItem(model,i)">remove</a>
-            </ul>
-        </div>
-        <a routerLink="../checkout" *ngIf="models.length">checkout </a>
-    
+        
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" width="50px">Model</th>
+                        <th scope="col" width="50px">Prix sans repassage</th>
+                        <th scope="col" width="50px">Prix Repassage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let model of models;let i = index">
+                        <td width="50px">{{model.name}}</td>
+                        <td width="50px">{{model.type}}</td>
+                        <td width="50px">{{getProductPrice(model.name,model.type,true)}}</td>
+                        <td width="50px">{{getProductPrice(model.name,model.type,false)}}</td>
+                        <td (click)="removeItem(model,i)" class="removeItem"><i class="material-icons">
+                                remove_shopping_cart
+                                </i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="models.length" class="checkOut">
+                <a routerLink="../checkout"  style="color: white; vertical-align: middle">Checkout </a>
+            </div>
         <a routerLink="/tarifs">revenir en arrière</a>
     </div>
     

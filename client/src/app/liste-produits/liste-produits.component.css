@@ -1,8 +1,22 @@
 .body{
     margin-top: 100px;
-    height: 400px;
+    height: 1000px;
 }
 
 #articles{
     margin-left: 400px;;
+}
+
+.addProduct:hover{
+    cursor: pointer;
+    background-color: rgb(152, 173, 189); 
+}
+
+.addProduct:active{
+    background-color: rgb(97, 112, 122)
+}
+
+.table{
+    width: 25%;
+    margin: 0 auto;
 }

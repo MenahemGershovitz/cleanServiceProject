@@ -19,7 +19,7 @@ export class PanierComponent implements OnInit {
     });
   }
 
-  getProductPrice(name: string, type: string, isFirstPrice: boolean) {
+  getProductPrice(name: string, type: string, isFirstPrice: boolean) {  //va aller chercher le prix puisque le prix n'est pas stocker dans le localstorage
     for(let prod of this.productService.AllProducts){
       if (prod.name === name) {
         return isFirstPrice ?
@@ -31,7 +31,7 @@ export class PanierComponent implements OnInit {
 
   removeItem(model,index){
     let lastProd = JSON.parse(localStorage.getItem('products'));
-    Object.keys(lastProd).forEach((key,keyIdx) => {
+    Object.keys(lastProd).forEach((key,keyIdx) => {  //object.keys va te renvoyer les du tableau sous form de tableau
       if(lastProd[key].name === model.name && lastProd[key].type === model.type && keyIdx===index){
         delete lastProd[key];
       }

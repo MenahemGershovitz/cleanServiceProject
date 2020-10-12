@@ -18,7 +18,11 @@ export class CleanServiceViewComponent implements OnInit {
   }
 
   isAdmin() {
-    return localStorage.getItem('isAdmin') === 'true';
+    return localStorage.getItem('isAdmin') === 'true' && this.isConnected();
+  }
+
+  isConnected() {
+    return localStorage.getItem('access_token') !== null ;
   }
 
   logout(){

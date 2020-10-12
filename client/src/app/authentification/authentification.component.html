@@ -1,17 +1,23 @@
 <div id="body">
     <div class="connexion">
-        <h1>Sign Up</h1>
- 
-        <form (submit)="onAuth(authForm)" #authForm="ngForm" ngNativeValidate>
-            
+        <div class="box">
+            <h1>Login</h1>
 
-            <input type="email" name = "email" placeholder="email" #email="ngModel" class="textSignUp" ngModel required >
-            
+            <form (submit)="onAuth(authForm)" #authForm="ngForm" ngNativeValidate>
 
-            <input type="password"  name= "password" placeholder="password" #password="ngModel" class="textSignUp" ngModel required>
-            
+                <div class="inputBox">
+                    <input type="email" name="email" autocomplete="off"  #email="ngModel" ngModel required>
+                    <label for="Email">Email</label>
+                </div>
 
-            <button type= "submit" >Login</button>
-        </form>
+
+                <div class="inputBox">
+                    <input type="password" name="password" autocomplete="off"  #password="ngModel"  ngModel required>
+                    <label for="password">Password</label>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
 </div>

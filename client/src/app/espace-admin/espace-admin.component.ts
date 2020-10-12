@@ -18,6 +18,7 @@ export class EspaceAdminComponent implements OnInit {
   ngOnInit() {
     this.orderService.getOrders().subscribe( (orders) => {
       this.orders = orders;
+      console.log(orders);
     });
   }
 

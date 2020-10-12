@@ -1,18 +1,25 @@
 <div id="body">
-    <div class="connexion">
+    <div class="box">
         <h1>Sign Up</h1>
- 
+
         <form (submit)="onSignUp(signUpForm)" #signUpForm="ngForm" ngNativeValidate>
-            <input type="text" ngModel name = "name" placeholder="full name" #name="ngModel" class="textSignUp"  required>
-            
+            <div class="inputBox">
+                <input type="text" ngModel name="name" autocomplete="off" #name="ngModel" required>
+                <label>Name</label>
+            </div>
 
-            <input type="email" name = "email" placeholder="email" #email="ngModel" class="textSignUp" ngModel required >
-            
+            <div class="inputBox">
+                <input type="email" name="email" #email="ngModel" autocomplete="off" ngModel required>
+                <label for="Email">Email</label>
+            </div>
 
-            <input type="password"  name= "password" placeholder="password" #password="ngModel" class="textSignUp" ngModel required>
-            
+            <div class="inputBox">
+                <input type="password" name="password" #password="ngModel" autocomplete="off" ngModel required>
+                <label>Password</label>
+            </div>
 
-            <button type= "submit" >Create Account</button>
+            <button type="submit">Create Account</button>
         </form>
+
     </div>
 </div>

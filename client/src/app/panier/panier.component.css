@@ -1,8 +1,40 @@
 .body{
     margin-top: 100px;
-    height: 400px;
+    height: 600px;
 }
 
 #articles{
     margin-left: 400px;;
+}
+
+.removeItem:hover{
+    background-color: rgb(152, 173, 189); 
+    cursor: pointer;
+    
+}
+
+.removeItem:active{
+    background-color:  rgb(72, 82, 90);
+}
+
+.table{
+    width: 30%;
+    margin: 0 auto;
+}
+
+.checkOut{
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgba(72, 82, 90, 0.8);
+    width: 200px;
+    height: 50px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.checkOut:hover{
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgba(37, 41, 44, 0.8)
+
 }

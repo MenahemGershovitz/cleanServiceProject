@@ -1,5 +1,27 @@
 .body{
     margin-top: 100px;
-    height: 400px;
+    width: 700px;
+    height: 600px;
     display: flex;
+    
+}
+
+td:hover{
+    background-color: rgba(8, 8, 77, 0.6);
+}
+
+.btnDetail{
+    cursor: pointer; 
+}
+
+.btnDetail:hover {
+    background-color: rgba(8, 8, 77, 0.6);
+    color: white;
+    border-radius: 1.5em;
+}
+
+.affichageDetails{
+    position: absolute;
+    right: 20%;
+    top: 30%;
 }

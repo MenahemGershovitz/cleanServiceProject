@@ -31,17 +31,17 @@ function _send(transporter, email,products) {
     });
   }
   
-function sendEmail(user, products) {
+function sendEmail(user, products) { //envoi le mail au client pour lui confirmer sa commande
     let transporter;
-    let transporterOptions = {
+    let transporterOptions = { //quel service de mail il va utiliser pour l'envoi
         service: "gmail"
     };
-    transporterOptions.auth = {
+    transporterOptions.auth = { //de qui va etre envoyer l'email
         user: "menahemgershovitz@gmail.com",
-        pass: ""
+        pass: "85214789"
     };
 
-    transporter = nodemailer.createTransport(transporterOptions);
+    transporter = nodemailer.createTransport(transporterOptions); //creer un genre de facteur 
     return _send(transporter, user.email, products);
 }
 
@@ -65,6 +65,7 @@ router.post('/', async (req,res)=>{
             products:allProductsId
         })
         await order.save();
+        console.log(order)
         const user = await User.findById(userId);
         await sendEmail(user,products);
         return res.status(201).send(order)
@@ -76,9 +77,9 @@ router.post('/', async (req,res)=>{
 })
 
 
-router.get('/', async (req,res)=>{
+router.get('/', async (req,res)=>{ //va chercher tout les orders de la base de donne
     try{
-       const orders = await Order.find({}).populate("user products")
+       const orders = await Order.find({}).populate("user products")  //transform l'id de user et product en objet
        console.log(orders)
        return res.status(200).json(orders)
     }

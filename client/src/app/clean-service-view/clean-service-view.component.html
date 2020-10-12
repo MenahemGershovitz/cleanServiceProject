@@ -1,40 +1,49 @@
 <header>
+    <nav class="navbar navbar-light" style="background-color:rgb(152, 173, 189);">
+        <div class="logo_menu">
+            <img src="../assets/img/logoBlanc.png" style="color: black" width="150px" height="65px">
+        </div>
 
-  <div class="logo_menu">
-    <img src="../assets/img/logoBlanc.png" width="150px" height="65px">
-  </div>
+        <div class="menu_ancre">
+            <!-- Navbar content -->
 
-  <div class="menu_ancre">
-    <button mat-button><a routerLink="tarifs">Nos Tarifs</a></button>
-    <button mat-button><a routerLink="contact">contact</a></button>
-    <button mat-button><a routerLink="home">Home</a></button>
-    <button mat-button><a routerLink="panier">Panier</a></button>
-  </div>
- 
-  <div class="btn_menu">
-    <button mat-button>
-      <mat-icon class="example-icon" mat-button [matMenuTriggerFor]="menu">menu_open</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item><a routerLink="signUp">create your account</a></button>
-      <button mat-menu-item><a routerLink="authentification">connexion</a></button>
-      <button mat-menu-item><a (click)="logout()">deconnexion</a></button>
-      <button mat-menu-item *ngIf="isAdmin()"><a routerLink="espace-admin">Espace admin</a></button>
-      <button mat-menu-item>A propos</button>
-      <button mat-menu-item>Contact</button>
-      
-      
-    </mat-menu>
-  </div>
+            <a routerLink="tarifs"><button mat-button *ngIf="isConnected()" style="outline-style:none;">Nos Tarifs</button></a>
+            <a routerLink="contact"><button mat-button style="outline-style:none;">Contact</button></a>
+            <a routerLink="home"><button mat-button style="outline-style: none;">Home</button></a>
+            <a routerLink="panier"><button mat-button *ngIf="isConnected()" style="outline-style:none;">Panier</button></a>
+            <a routerLink="pressingForm"><button mat-button style="outline-style: none;">Pressings</button></a>
+        </div>
+
+        <div class="btn_menu">
+            <button mat-button style="outline-style:none;">
+        <mat-icon class="example-icon" mat-button [matMenuTriggerFor]="menu"  style = "color: black;" >menu_open</mat-icon>
+      </button>
+            <mat-menu #menu="matMenu">
+                <a routerLink="signUp"><button mat-menu-item *ngIf="!isConnected()" style="outline-style:none;">Créer votre compte</button></a>
+                <a routerLink="authentification"><button mat-menu-item *ngIf="!isConnected()"
+            style="outline-style:none;">Connexion</button></a>
+                <a (click)="logout()"><button mat-menu-item *ngIf="isConnected()"
+            style="outline-style:none;">Déconnexion</button></a>
+                <a routerLink="espace-admin"><button mat-menu-item *ngIf="isAdmin()" style="outline-style:none;">Espace
+            admin</button></a>
+
+                <button mat-menu-item style="outline-style:none;">A propos</button>
+            </mat-menu>
+        </div>
+    </nav>
 </header>
 
-<div >
-  
+<div>
+
 </div>
 <div>
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>
 
-<footer>
-  <span>Copyright by Menahem Gershovitz</span>
+<footer style="background-color: rgb(152, 173, 189);">
+
+    <span style="color: black; text-align: center"><i class="material-icons">
+        copyright
+        </i>opyright by Menahem Gershovitz</span>
+
 </footer>

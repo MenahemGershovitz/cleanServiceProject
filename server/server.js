@@ -25,8 +25,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //API
 const usersRouter = require('./routes/users');
 const orderRouter = require('./routes/order');
+const pressingRouter = require('./routes/pressing');
 app.use("/api/users", usersRouter);
 app.use("/api/orders", orderRouter);
+app.use("/api/pressing", pressingRouter);
 
 
 const port = process.env.PORT || 3000;

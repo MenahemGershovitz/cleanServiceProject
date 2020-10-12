@@ -14,12 +14,16 @@
                     <td>{{order.user.name}}</td>
                     <td>{{order.user.email}}</td>
                     <td>{{order.address}}</td>
-                    <td><a (click)="showProduct(order.products)">{{order.products.length}}</a></td>
+                    <td>{{order.products.length}}</td>
+                    <td class="btnDetail"><a (click)="showProduct(order.products)">details</a></td>
                 </tr>
             </ng-template>
         </p-table>
     </div>
-    <div class="products">
+
+
+
+    <div class="affichageDetails">
         <ul>
             <li *ngFor="let product of products">
                 {{product.name}}--{{product.type}}
